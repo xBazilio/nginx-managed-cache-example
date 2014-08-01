@@ -64,6 +64,12 @@ class LoginForm extends CFormModel
 		}
 		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
 		{
+            //set cookie to prevent caching pages while logged in
+            $noCacheCookie = new CHttpCookie('no_cache', '1', array(
+                'expire' => time() + 3600*24*30, // 30 days
+            ));
+            Yii::app()->request->cookies->add('no_cache', $noCacheCookie);
+
 			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
 			Yii::app()->user->login($this->_identity,$duration);
 			return true;

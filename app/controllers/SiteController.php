@@ -96,6 +96,9 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+        //remove cookie and restore pages cachings
+        Yii::app()->request->cookies->remove('no_cache');
+
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}

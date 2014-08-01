@@ -208,8 +208,17 @@ class PostController extends Controller
 			$comment->attributes=$_POST['Comment'];
 			if($post->addComment($comment))
 			{
-				if($comment->status==Comment::STATUS_PENDING)
+				if ($comment->status==Comment::STATUS_PENDING) {
+                    if (Yii::app()->user->isGuest) {
+                        //disable caching for 5 seconds to show flash message
+                        $noCacheCookie = new CHttpCookie('no_cache', '1', array(
+                            'expire' => time() + 5, // 5 seconds
+                        ));
+                        Yii::app()->request->cookies->add('no_cache', $noCacheCookie);
+                    }
+
 					Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment. Your comment will be posted once it is approved.');
+                }
 				$this->refresh();
 			}
 		}
