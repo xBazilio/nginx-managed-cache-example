@@ -13,7 +13,7 @@ return array(
 	// maximum number of tags that can be displayed in tag cloud portlet
 	'tagCloudCount'=>20,
 	// whether post comments need to be approved before published
-	'commentNeedApproval'=>true,
+	'commentNeedApproval'=>false,
 	// the copyright information displayed in the footer section
 	'copyrightInfo'=>'Copyright &copy; 2009 by My Company.',
 );

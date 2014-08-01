@@ -219,6 +219,10 @@ class PostController extends Controller
 
 					Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment. Your comment will be posted once it is approved.');
                 }
+                elseif ($comment->status == Comment::STATUS_APPROVED) {
+                    //clear cache to show comment
+                    CacheClearer::clear(Yii::app()->createAbsoluteUrl('post/view', array('id' => $post->id, 'title' => $post->title)));
+                }
 				$this->refresh();
 			}
 		}

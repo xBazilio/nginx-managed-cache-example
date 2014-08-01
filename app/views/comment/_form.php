@@ -3,6 +3,8 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'comment-form',
 	'enableAjaxValidation'=>true,
+    //control form action to prevent here cache clear parameter
+    'action' => array($this->id . '/' . $this->getAction()->id, 'id' => Yii::app()->request->getQuery('id')),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>

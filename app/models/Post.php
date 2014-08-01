@@ -168,6 +168,13 @@ class Post extends CActiveRecord
 	{
 		parent::afterSave();
 		Tag::model()->updateFrequency($this->_oldTags, $this->tags);
+
+        //clear cache for posts list
+        CacheClearer::clear(Yii::app()->createAbsoluteUrl('post/index'));
+        //clear cache for post detail page
+        if (!$this->isNewRecord) {
+            CacheClearer::clear(Yii::app()->createAbsoluteUrl('post/view', array('id' => $this->id, 'title' => $this->title)));
+        }
 	}
 
 	/**
