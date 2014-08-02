@@ -24,7 +24,7 @@ nginx-managed-cache-example
 и [fastcgi_no_cache](http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_no_cache).
 * Ключём кэша выступает URI страницы, то есть часть URL без GET параметров.
 * Код настроен так, чтобы везде использовались path-formatted URLs.
-* При использовании URL текущей страницы, например для формирования action для тэга form,
+* При использовании URL текущей страницы, например для формирования `action` для тэга `form`,
 необходимо исключать из него параметр для сброса кэша.
 * Сброс кэша происходит с помощью HTTP запроса на необходимый URL с добавлением GET параметра.
 Запрос выполняется с помощью [curl](http://php.net/manual/en/book.curl.php).
@@ -80,7 +80,7 @@ fastcgi_cache_path /var/lib/nginx/cache levels=1:2 keys_zone=one:10m inactive=1d
 ```
 127.0.0.1 nginx-managed-cache.local
 ```
-* Для генерации sqlite базы данных необходимо выполнить команду находясь в папке `nginx-managed-cache.local/web`:
+* Для генерации sqlite базы данных необходимо выполнить команду находясь в папке `/home/webdev/www/nginx-managed-cache.local/web`:
 ```bash
 php ./app/data/dbgen.php
 ```
