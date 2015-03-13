@@ -1,0 +1,14 @@
+{
+    "name": "xbazilio/nginx-managed-cache-example",
+    "description": "Example showing how to use nginx cache futures",
+    "require": {
+        "yiisoft/yii": "1.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xBazilio",
+            "email": "x.bazilio@gmail.com"
+        }
+    ]
+}
