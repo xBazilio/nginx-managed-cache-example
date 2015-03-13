@@ -57,7 +57,8 @@ mkdir -p /home/webdev/www/nginx-managed-cache.local/web
 
 * Скачать [архив проекта](https://github.com/xBazilio/nginx-managed-cache-example/archive/master.zip).
 * Распаковать архив и скопировать содержимое папки `nginx-managed-cache-example-master` в
-`/home/webdev/www/nginx-managed-cache.local/web`
+`/home/webdev/www/nginx-managed-cache.local/web`.
+* Запустить `composer install`, чтобы скачать и установить yii.
 * Настроить PHP-FPM для работы с правами пользователя `webdev`. Для этого в файле
 `/etc/php5/fpm/pool.d/www.conf` настроить директивы `user` и `group`.
 * nginx будет общаться с PHP-FPM через сокет. Для этого настроить соответствющие директивы:

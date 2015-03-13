@@ -58,6 +58,7 @@ mkdir -p /home/webdev/www/nginx-managed-cache.local/web
 * Download [project archive](https://github.com/xBazilio/nginx-managed-cache-example/archive/master.zip).
 * Unzip the archive and copy content of `nginx-managed-cache-example-master` folder into
 `/home/webdev/www/nginx-managed-cache.local/web`.
+* Run `composer install` to download and install yii framework.
 * Set PHP-FPM to work with `webdev`'s permissions. To achieve this set directives `user` and `group`
 in `/etc/php5/fpm/pool.d/www.conf`.
 * nginx will comunicate with PHP-FPM through socket. To achieve this set corresponging directives:
